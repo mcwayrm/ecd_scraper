@@ -1,0 +1,4 @@
+# The files I don't want following through github
+*.exe
+*.ini
+*.ipynb_checkpoints
