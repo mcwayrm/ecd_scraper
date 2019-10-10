@@ -1,0 +1,5 @@
+## Ignore accessories to the scripts
+
+*.ipynb_checkpoints
+chromedriver.exe
+*.ini
