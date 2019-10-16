@@ -57,8 +57,8 @@ foreach database of local database_1{
 			destring year, replace
 		}
 		else if "`database'" == "psychinfo"{
-			collapse (firstnm) year atl ab au7 jtl ui url, by(resultID)
-			rename (atl ab au7 jtl ui) (title abstract authors journal doi)
+			collapse (firstnm) type10 issn btl au type4, by(resultID)
+			rename (type10 issn btl au type4) (year title abstract authors journal)
 			tostring year title abstract authors url doi journal, replace 
 		}
 		else if "`database'" == "opengrey"{
@@ -148,13 +148,13 @@ foreach database of local database_1{
 
 			gen combo = "`combo'"
 			order combo
-			keep year title abstract authors journal url doi new_title combo
+			keep year title abstract authors journal combo
 			save "`home'\\`database'\\`combo'.dta", replace
 		}
 		else {	
 			gen combo = "`combo'"
 			order combo
-			keep year title abstract authors journal url doi combo
+			keep year title abstract authors journal combo
 			save "`home'\\`database'\\`combo'.dta", replace
 		}
 	}
